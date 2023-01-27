@@ -8,6 +8,7 @@ Feature: Test for the home page
     Then status 200
     And match response.tags == "#array"
     And match each response.tags == "#string"
+    And match response.tags !contains 'XzY1!'
 
   Scenario: Get 10 articles
     Given params {limit: 10, offset: 0}
