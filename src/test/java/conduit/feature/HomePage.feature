@@ -6,6 +6,7 @@ Feature: Test for the home page
     Given path 'tags'
     When method Get
     Then status 200
+    And match response.tags == "#array"
 
   Scenario: Get 10 articles
     Given params {limit: 10, offset: 0}
