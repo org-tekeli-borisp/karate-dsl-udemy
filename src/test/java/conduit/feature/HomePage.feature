@@ -18,3 +18,4 @@ Feature: Test for the home page
     Given path 'articles'
     When method Get
     Then status 200
+    And match response.articles == '#[10]'
