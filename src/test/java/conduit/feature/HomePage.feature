@@ -19,3 +19,4 @@ Feature: Test for the home page
     When method Get
     Then status 200
     And match response.articles == '#[10]'
+    And assert response.articlesCount >= 10
