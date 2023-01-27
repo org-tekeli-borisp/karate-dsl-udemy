@@ -7,6 +7,7 @@ Feature: Test for the home page
     When method Get
     Then status 200
     And match response.tags == "#array"
+    And match each response.tags == "#string"
 
   Scenario: Get 10 articles
     Given params {limit: 10, offset: 0}
