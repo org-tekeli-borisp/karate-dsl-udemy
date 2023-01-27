@@ -1,0 +1,19 @@
+### Login and put token in a variable
+POST https://conduit.productionready.io/api/users/login
+Content-Type: application/json
+
+{
+  "user": {
+    "email": "{{email}}",
+    "password": "{{password}}"
+  }
+}
+
+> {%
+    client.assert(response.status == 200);
+    client.global.set("token", response.body.user.token);
+    client.log(client.global.get("token"))
+%}
+
+
+

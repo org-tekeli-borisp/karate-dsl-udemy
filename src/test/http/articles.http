@@ -1,0 +1,3 @@
+# Get Tags
+GET https://conduit.productionready.io/api/articles?limit=10&offset=0
+Accept: application/json

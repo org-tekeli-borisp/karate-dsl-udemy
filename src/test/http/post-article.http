@@ -1,0 +1,30 @@
+### Login and put token in a variable
+POST https://conduit.productionready.io/api/users/login
+Content-Type: application/json
+
+{
+  "user": {
+    "email": "{{email}}",
+    "password": "{{password}}"
+  }
+}
+
+> {%
+    client.assert(response.status == 200);
+    client.global.set("token", response.body.user.token);
+%}
+
+#### Post a new article using the token
+POST https://conduit.productionready.io/api/articles/
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "article": {
+    "tagList": [],
+    "title": "Karate DSL Udemy Course {{$random.uuid}}",
+    "description": "Karate DSL Udemy Course {{$random.uuid}}",
+    "body": "Karate DSL Udemy Course {{$random.uuid}}"
+  }
+}
+
