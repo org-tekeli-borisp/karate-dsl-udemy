@@ -10,6 +10,7 @@ Feature: Test for the home page
     And match each response.tags == "#string"
     And match response.tags !contains 'XzY1!'
     And match response.tags contains 'welcome'
+    And match response.tags contains ['welcome','introduction']
 
 
   Scenario: Get 10 articles
